@@ -1,0 +1,60 @@
+{% extends "html.page.html" %}
+
+{% load static %}
+
+{% block main %}
+		<section class="main-menu-container">
+			<div class="show_toggle"><a href="#"></a></div>
+			<ul class="main-menu">
+				<li>
+					<a href="#" class="home-link">Главная</a>
+				</li>
+				{% for slide in slides %}
+				<li>
+					<a href="#" data-page="{{ slide.name }}">{{ slide.menu_title }}</a>
+				</li>
+				{% endfor %}
+				<!-- <li>
+					<a href="#" data-page="services">Услуги</a>
+				</li>
+				<li>
+					<a href="#" data-page="about">О нас</a>
+				</li>
+				<li>
+					<a href="#" data-page="contacts">Контакты</a>
+				</li> -->
+			</ul>
+		</section>
+		<section class="twitter-container">
+			<div class="twitter">
+				<ul class="tweet_list" id="tweet_list">
+					<li class="tweet_first tweet_odd">
+						<span class="tweet_text">WordPress 3.8 “Parker” is out and
+							<br>
+							ready for download <a href="#">buff.ly/18EGYRR</a></span><span class="tweet_time"><a href="#" title="view tweet on twitter">about 5 days ago</a></span>
+					</li>
+					<li class="tweet_even">
+						<span class="tweet_text"><span class="at">@</span><a href="http://twitter.com/BeyondLocal_">BeyondLocal_</a> <span class="at">@</span><a href="http://twitter.com/bespokeav">bespokeav</a> Thanks :)</span><span class="tweet_time"><a href="http://twitter.com/pixelthrone/status/466325405507387392" title="view tweet on twitter">about 15 days ago</a></span>
+					</li>
+					<li class="tweet_odd">
+						<span class="tweet_text"><span class="at">@</span><a href="http://twitter.com/geeks_in_motion">geeks_in_motion</a> ,hi for a better support please visit our online forum.I have a great team able to help you. → <a href="http://goo.gl/fghIzb">goo.gl/fghIzb</a></span><span class="tweet_time"><a href="http://twitter.com/pixelthrone/status/466280221889409024" title="view tweet on twitter">about 15 days ago</a></span>
+					</li>
+				</ul>
+			</div>
+		</section>
+{% block content %}
+{% endblock %}
+		<section class="social-container">
+			<ul class="social">
+				<li>
+					<a href="#"><img src="{% static 'img/icons/twitter-icon.png' %}" alt="" /></a>
+				</li>
+				<li>
+					<a href="#"><img src="{% static 'img/icons/youtube-icon.png' %}" alt="" /></a>
+				</li>
+				<li>
+					<a href="#"><img src="{% static 'img/icons/facebook-icon.png' %}" alt="" /></a>
+				</li>
+			</ul>
+		</section>
+{% endblock %}

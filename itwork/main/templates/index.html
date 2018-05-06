@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+		<section class="mainarea">
+			<div id="clock" class="active">
+				<div class="clock-container">
+					<div id="time-container-wrap">
+						<div id="time-container">
+							<div class="numbers-container"></div>
+							<span id="ticker" class="clock-label">Точное время</span>
+							<span id="timelable" class="clock-label">Санкт-Петербург</span>
+							<figure id="canvas"></figure>
+						</div>
+					</div>
+				</div>
+				<h3>Подписаться на новости</h3>
+				<form action="subscribe" class="subscribe" id="subscribe" method="post">
+					{% csrf_token %}
+					<input type="email" placeholder="Введите Ваш email" class="email form_item requiredField" name="email" />
+					<input type="submit" class='form_submits' value="Подписаться" />
+					<div id="form_results"></div>
+				</form>
+			</div>
+{% block mainarea-content %}
+			<div class="mainarea-content">
+				{% for slide in slides %}
+				
+				<div id="{{ slide.name }}" data-page="{{ slide.name }}" class="side-page 
+{% if forloop.counter0 == 0 %} {{ slide_left }} {% endif %}{% if forloop.counter0 == 2 %} {{ slide_right }} {% endif %} ">
+					<div class="container">
+						<h2 class="title">{{ slide.title }}</h2>
+						<ul class="{{ slide.name }}">
+						{% for list in lists %}
+						{% if list.slide == slide %}
+							<img src="{{ list.image }}" />
+						    <li>
+							{{ list.text | safe}}
+						    </li>
+						{% endif %}
+						{% endfor %}
+						</ul>
+						{{ slide.body | safe }}
+						{% if slide_form.slide == slide %}
+						<form id="contacts" action="feedback" method="post" class="contact-list">{% csrf_token %}
+							<div class="field-row">
+								<input class="form_item" type="text" id="name" name="name" placeholder="Имя" />
+							</div>
+							<div class="field-row">
+								<input class="form_item" type="email" id="email" name="email" placeholder="Ваш E-mail" />
+							</div>
+							<div class="field-row">
+								<input class="form_item" type="text" id="message" name="message" placeholder="Сообщение" />
+							</div>
+							<div class="field-row">
+								<input type="submit" class="form_submits" value="Отправить сообщение" />
+							</div>
+						</form>
+						{% endif%}
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+			<a class="close" href="#"><img alt="" src="{% static 'img/close.png' %}"></a>
+{% endblock %}
+		</section>
+{% endblock %}
