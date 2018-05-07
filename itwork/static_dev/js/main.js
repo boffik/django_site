@@ -32,6 +32,25 @@
 			return false;
 		});
 
+		$('.form_submit').click(function(){
+			var form = $(this).parents('form');
+			form.find('.form_item').removeClass('error');
+			form.find('.error_block').remove();
+			var post_data;
+			var errors = formValidation(form),
+				output;
+			if( Object.keys(errors).length > 0 ) {
+				showErrors(form, errors);
+			} else {
+				if(form.attr('id') == 'contacts_form') {
+ 					post_data = {
+            		    'name'     : $('input[name=name]').val(),
+            		    'email'    : $('input[name=email]').val(),
+            		    'message'  : $('input[name=message]').val()
+            		};
+			}
+		}
+		return false;
 	});
 
 		$('.side-page').click(function() {

@@ -19,9 +19,8 @@
 	bottom: 0;
 	left: 0;
 	right: 0;
+        background: rgba(100,100,100,0.25);
         border-radius: 49.75%;
-        background: rgba(100,100,100,0.35);
-
 }
 #time-container span {
 	color: #FFFFFF;
@@ -38,14 +37,14 @@
 	font-weight: 300;
 }
 #ticker {
-	font-size: 125%;
-	left: 215px;
+	font-size: 120%;
+	left: 220px;
 	top: 155px;
 }
 #timelable {
-	font-size: 120%;
-	left: 205px;
-	top: 335px;
+	font-size: 125%;
+	left: 200px;
+	top: 350px;
 }
 #timeleft {
 	font-size: 190%;
