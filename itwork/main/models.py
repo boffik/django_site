@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-
+from ckeditor.fields import RichTextField
 from django.db import models
 
 
@@ -8,7 +8,7 @@ class InfoSlide(models.Model):
     name = models.CharField(max_length = 20, blank = False, default = 'Slide')
     title = models.CharField(max_length = 40, blank = False, null = False)
     menu_title = models.CharField(max_length = 40, blank = False, null = False, default='Menu entry')
-    body = models.TextField()
+    body = RichTextField()
     is_active = models.BooleanField(default = True)
 
     class Meta:

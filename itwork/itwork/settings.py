@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main',
+    'ckeditor',
 ]
 
 MIDDLEWARE = [
@@ -122,3 +123,7 @@ STATIC_ROOT = BASE_DIR
 STATICFILES_DIRS = (
     os.path.join(STATIC_ROOT, "static_dev"),
 )
+
+#ckeditor init file path
+#https://github.com/django-ckeditor/django-ckeditor#installation
+CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
