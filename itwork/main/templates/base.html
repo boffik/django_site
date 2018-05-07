@@ -14,15 +14,6 @@
 					<a href="#" data-page="{{ slide.name }}">{{ slide.menu_title }}</a>
 				</li>
 				{% endfor %}
-				<!-- <li>
-					<a href="#" data-page="services">Услуги</a>
-				</li>
-				<li>
-					<a href="#" data-page="about">О нас</a>
-				</li>
-				<li>
-					<a href="#" data-page="contacts">Контакты</a>
-				</li> -->
 			</ul>
 		</section>
 		<section class="twitter-container">
@@ -46,15 +37,11 @@
 {% endblock %}
 		<section class="social-container">
 			<ul class="social">
+			{% for social in social_links %}
 				<li>
-					<a href="#"><img src="{% static 'img/icons/twitter-icon.png' %}" alt="" /></a>
+					<a href="{{ social.link }}"><img src="{{ social.icon }}" alt="{{ social.name }}" /></a> 
 				</li>
-				<li>
-					<a href="#"><img src="{% static 'img/icons/youtube-icon.png' %}" alt="" /></a>
-				</li>
-				<li>
-					<a href="#"><img src="{% static 'img/icons/facebook-icon.png' %}" alt="" /></a>
-				</li>
+			{% endfor %}
 			</ul>
 		</section>
 {% endblock %}

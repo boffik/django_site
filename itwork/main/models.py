@@ -22,7 +22,7 @@ class InfoSlide(models.Model):
 class InfoList(models.Model):
     slide = models.ForeignKey('InfoSlide', on_delete=models.CASCADE,)
     name = models.CharField(max_length = 20, blank = False, default = '')
-    image = models.FileField(upload_to='static_dev/uploads/')
+    image = models.FileField(upload_to='static/uploads/')
     text = models.TextField()
 
     class Meta:
@@ -54,3 +54,16 @@ class FeedbackForms(models.Model):
 
     def __str__(self):
         return self.name
+
+class Social_links(models.Model):
+    name = models.CharField(max_length = 30)
+    link = models.URLField()
+    icon = models.FileField(upload_to='static/uploads/social_links')
+
+    class Meta:
+        verbose_name = 'Ссылка на соцсети'
+        verbose_name_plural = 'Ссылки на соцсети'
+
+    def __str__(self):
+        return self.name
+

@@ -31,4 +31,5 @@ def main(request):
         slide_form = FeedbackForms.objects.all().filter(active='True')[0]
         slide_left = 'side-left went-left'
         slide_right = 'side-right went-right'
+        social_links = Social_links.objects.all()
         return render(request, 'index.html', locals())

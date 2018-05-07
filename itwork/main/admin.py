@@ -23,4 +23,5 @@ class FeedbackAdmin(admin.ModelAdmin):
 admin.site.register(Feedback, FeedbackAdmin)
 
 admin.site.register(FeedbackForms)
-# Register your models here.
+
+admin.site.register(Social_links)
